@@ -1,91 +1,67 @@
 # AI/Machine Learning Intern Challenge: Simple Content-Based Recommendation
 
-**Deadline**: Sunday, Feb 23th 11:59 pm PST
-
 ---
 
-## Overview
+## Dataset
 
-Build a **content-based recommendation system** that, given a **short text description** of a user’s preferences, suggests **similar items** (e.g., movies) from a small dataset. This challenge should take about **3 hours**, so keep your solution **simple** yet **functional**.
+Data set is from CMU Movie Summary Corpus. Data is already downloaded into the 
+repository, however link to dataset can be found **here**: 
+https://www.cs.cmu.edu/~ark/personas/
 
-### Example Use Case
+## Setup
 
-- The user inputs:  
-  *"I love thrilling action movies set in space, with a comedic twist."*  
-- Your system processes this description (query) and compares it to a dataset of items (e.g., movies with their plot summaries or keywords).  
-- You then return the **top 3–5 “closest” matches** to the user.
+### Uses Python3
+#### Create the virtual environment
+1. Open your terminal in the project directory and run:
+      `python -m venv venv`
+This creates a new directory named venv that contains an isolated Python environment.
+2. Activate the virtual environment
 
----
+   On macOS/Linux, run: 
 
-## Requirements
+         source venv/bin/activate
 
-1. **Dataset**  
-   - Use a **small** public dataset of items (e.g., a list of movies with plot summaries, or other textual descriptions).  
-   - Make sure the dataset is easy to handle (maybe 100–500 rows) so the solution remains quick to implement and run.  
-   - Include the dataset in your forked repository *or* provide instructions/link on how to download it.  
+   On Windows, run:
 
-2. **Approach**  
-   - **Content-Based**: At a minimum, use text similarity to recommend items.  
-     - For instance, you can transform both the user’s text input and each item’s description into TF-IDF vectors and compute **cosine similarity**.  
-   - Return the **top N** similar items (e.g., top 5).
+         venv\Scripts\activate
 
-3. **Code Organization**  
-   - You may use a **Jupyter Notebook** or **Python scripts**.  
-   - Keep it **readable** and **modular** (e.g., one section for loading data, one for building vectors, one for computing similarity, etc.).  
-   - Briefly comment or docstring your key functions/sections.
+   When activated, your terminal prompt should change to show the name of the virtual environment.
 
-4. **Output**  
-   - When given an input description (e.g., `"I like action movies set in space"`), your system should print or return a list of recommended items (e.g., 3–5 titles).  
-   - Include the similarity score or rank if you’d like.
+3. Install project dependencies
 
-5. **Summary & Instructions**  
-   - A short `README.md` that includes:
-     - **Dataset**: Where it’s from, any steps to load it.  
-     - **Setup**: Python version, virtual environment instructions, and how to install dependencies (`pip install -r requirements.txt`).  
-     - **Running**: How to run your code (e.g., `python recommend.py "Some user description"` or open your notebook in Jupyter).  
-     - **Results**: A brief example of your system’s output for a sample query.
+   With the virtual environment activated, install the required packages by running:
 
----
+         pip install -r requirements.txt
 
-## Deliverables
+4. Deactivate the virtual environment
 
-1. **Fork the Public Repository**  
-   - **Fork** this repo into your own GitHub account.
+   When you’re finished working, simply run:
 
-2. **Implement Your Solution**  
-   - Load and preprocess your dataset (e.g., read CSV, handle text columns).  
-   - Convert text data to vectors (e.g., TF-IDF).  
-   - Implement a function to compute similarity between the user’s query and each item’s description.  
-   - Return the top matches.
-   - Salary expectation per month (Mandatory)
+         deactivate
 
-3. **Short Video Demo**  
-   - In a `.md` file (e.g., `demo.md`) within your fork, paste a link to a **brief screen recording** (video link).  
-   - Demonstrate:
-     - How you run the recommendation code.  
-     - A sample query and the results.
+## Running Code
 
-4. **Deadline**  
-   - Submit your fork by **Sunday, Feb 23th 11:59 pm PST**.
+If using VScode or any ide, simply click `Run Python File`
 
-> **Note**: This should be doable within ~3 hours. Keep it **straightforward**—you do **not** need advanced neural networks or complex pipelines. A simple TF-IDF + cosine similarity approach is sufficient.
+If on terminal, naivgate to project directory and run:
 
----
+      python reccomender.py
 
-## Evaluation Criteria
+Then once the prompt `Query:` appears, enter a query and press enter.
 
-1. **Functionality**  
-   - Does your code run without errors?  
-   - When given an input query, does it successfully output relevant items?
+## Results
 
-2. **Code Quality**  
-   - Clear, commented code (where it counts).  
-   - Logical steps (load data → transform → recommend).
+```console
+>>python recommender.py
+Query:
+I want to watch a sci-fi film
 
-3. **Clarity**  
-   - Is your `README.md` straightforward about setup, how to run, and what to expect?
+       title                                                      plot
+1      The Bridge  Sea Org officer Ronnie Miscavige describes the planetary Scientology dissemination campaign. Aft...
+2   Ab Insaf Hoga  The film deals with a woman's  fight against corruption. She has always a strong support in her ...
+3  From the Drain  The film is centered on two men in a bathtub; it is implied that they are veterans of some past ...
+4          Vixen!  In the heart of the Canadian wilderness, sultry and sexually assertive Vixen becomes quickly bor...
+5      1 a Minute  The film is a hybrid between narrative structure and documentary style set to interweave through...
 
-4. **ML/Recommendation Understanding**  
-   - Basic implementation of a content-based recommendation approach (vectorization, similarity measure).
-
-**We look forward to seeing your solution!** Good luck!
+Salary expectation: $5000/month
+```
